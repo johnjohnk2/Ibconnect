@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+IBpy -- Valeurs de :  {{ user.username}}
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1>Valeurs de  {{ user.username}}</h1>
+            <ul>
+                {% for bm in user.bookmarks %}
+                    <li> 
+                        <a href="{{ bm.url }}">{{ bm.description}} </a><br>
+                        <span class="timestamp"> Added at {{ bm.date}}</span>
+                    </li>   
+                {% else %}
+                    <li> Cet utilisateur n'a pas encore ajouté de valeurs</li>
+                {% endfor  %}
+            </ul>
+        </header>
+    </article>
+{% endblock %}
